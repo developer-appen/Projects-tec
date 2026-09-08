@@ -19,10 +19,72 @@ def menu():
 
 # Funções do "CRUD"
 def cadastrar(listaPessoas): # Criando uma pessoa...
-    pass
+    clearTerminal()
+    print("\n====== CADASTRO DE PESSOAS ======")
+    nome = input("\nDigite o seu nome completo: ")
+    clearTerminal()
+
+    try:
+        idade = int(input("\nQuantos anos você tem? "))
+        clearTerminal()
+        altura = int(input("\nQual é a sua altura em centimetros: "))
+        clearTerminal()
+    except ValueError:
+        clearTerminal()
+        print("\nOpção inválida - Só aceito números!")
+        input("\nPressione a tela ENTER continuar...")
+        clearTerminal()
+        return
+
+    cidade = input("\nEm que cidade você reside? ")
+    clearTerminal()
+    endereco = input("\nQual é o seu endereço (rua)? ")
+    clearTerminal()
+    cep = input("\nDigite o seu CEP: ")
+
+    # Adicionando os dados em um "dicionário"
+    dicionarioPessoas = {
+        "nome" : nome,
+        "idade" : idade,
+        "altura" : altura,
+        "cidade" : cidade,
+        "endereco" : endereco,
+        "cep" : cep
+    }
+
+    # Adicionando todos os dados das pessoas dentro de uma lista
+    listaPessoas.append(dicionarioPessoas)
+
+    # Limpando terminal
+    clearTerminal()
+
+    # Mensagem de sucesso!
+    print("\nPessoa cadastrada com suceso!")
+    input("\nPressione a tecla ENTER para continuar...")
+    clearTerminal()
 
 def exibirCadastros(listaPessoas): # Exibindo informações...
-    pass
+    clearTerminal()
+    print("\n====== EXIBIÇÃO DOS CADASTROS ======")
+    if len(listaPessoas) == 0:
+        clearTerminal()
+        print("\nNão há nenhuma pessoa no sistema para exibir!")
+    else:
+        id = 0
+        for pessoa in listaPessoas:
+            print(f"\nID: {id}")
+            print(f"NOME: {pessoa["nome"]}")
+            print(f"IDADE: {pessoa["idade"]}")
+            print(f"ALTURA: {pessoa["altura"]}")
+            print(f"CIDADE: {pessoa["cidade"]}")
+            print(f"ENDEREÇO: {pessoa["endereco"]}")
+            print(f"CEP: {pessoa["cep"]}")
+            id += 1
+
+        print(f"\nTotal de pessoas no sistema: {id}")
+
+    input("\nPressione a tecla ENTER para continuar...")
+    clearTerminal()
 
 def atualizar(listaPessoas): # Atualizando os dados de uma pessoa específica...
     pass
