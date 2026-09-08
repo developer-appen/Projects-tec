@@ -123,7 +123,9 @@ def main():
                 print("\n===== SAINDO DO PROGRAMA =====\n")
                 break
             else:
-                print("\nOpção inválida")
+                clearTerminal()
+                print("\nOpção inválida para o menu!")
+                input("\nPressione a tecla ENTER para continuar...")
 
 if __name__ == "__main__":
     main()
